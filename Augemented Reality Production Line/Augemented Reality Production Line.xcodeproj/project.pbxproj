@@ -15,6 +15,12 @@
 		3D759ED019C9CF3900B6CEF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D759ECE19C9CF3900B6CEF3 /* Main.storyboard */; };
 		3D759ED219C9CF3900B6CEF3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D759ED119C9CF3900B6CEF3 /* Images.xcassets */; };
 		3D759EDE19C9CF3900B6CEF3 /* Augemented_Reality_Production_LineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EDD19C9CF3900B6CEF3 /* Augemented_Reality_Production_LineTests.m */; };
+		3D759EF119C9D23800B6CEF3 /* NSNull+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EEE19C9D23800B6CEF3 /* NSNull+Utilities.m */; };
+		3D759EF219C9D23800B6CEF3 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EF019C9D23800B6CEF3 /* NSDate+Utilities.m */; };
+		3D759EFC19C9D43E00B6CEF3 /* IBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EFB19C9D43E00B6CEF3 /* IBeacon.m */; };
+		3D759EFF19C9D57800B6CEF3 /* BeaconMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EFE19C9D57800B6CEF3 /* BeaconMonitor.m */; };
+		3D759F0219C9D78C00B6CEF3 /* BeaconProtocols.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759F0119C9D78C00B6CEF3 /* BeaconProtocols.m */; };
+		3D759F0519C9DD8100B6CEF3 /* BeaconDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759F0419C9DD8100B6CEF3 /* BeaconDefinition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,19 @@
 		3D759ED719C9CF3900B6CEF3 /* Augemented Reality Production LineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Augemented Reality Production LineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D759EDC19C9CF3900B6CEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D759EDD19C9CF3900B6CEF3 /* Augemented_Reality_Production_LineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Augemented_Reality_Production_LineTests.m; sourceTree = "<group>"; };
+		3D759EED19C9D23800B6CEF3 /* NSNull+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Utilities.h"; sourceTree = "<group>"; };
+		3D759EEE19C9D23800B6CEF3 /* NSNull+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Utilities.m"; sourceTree = "<group>"; };
+		3D759EEF19C9D23800B6CEF3 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		3D759EF019C9D23800B6CEF3 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		3D759EFA19C9D43E00B6CEF3 /* IBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBeacon.h; sourceTree = "<group>"; };
+		3D759EFB19C9D43E00B6CEF3 /* IBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBeacon.m; sourceTree = "<group>"; };
+		3D759EFD19C9D57800B6CEF3 /* BeaconMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconMonitor.h; sourceTree = "<group>"; };
+		3D759EFE19C9D57800B6CEF3 /* BeaconMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconMonitor.m; sourceTree = "<group>"; };
+		3D759F0019C9D78C00B6CEF3 /* BeaconProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconProtocols.h; sourceTree = "<group>"; };
+		3D759F0119C9D78C00B6CEF3 /* BeaconProtocols.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconProtocols.m; sourceTree = "<group>"; };
+		3D759F0319C9DD8100B6CEF3 /* BeaconDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconDefinition.h; sourceTree = "<group>"; };
+		3D759F0419C9DD8100B6CEF3 /* BeaconDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconDefinition.m; sourceTree = "<group>"; };
+		3DC425CB19C9E99000DA39E9 /* BeaconProximity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconProximity.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +103,14 @@
 		3D759EBD19C9CF3900B6CEF3 /* Augemented Reality Production Line */ = {
 			isa = PBXGroup;
 			children = (
+				3D759EEC19C9D16800B6CEF3 /* Controllers */,
+				3D759EEB19C9D14600B6CEF3 /* Services */,
+				3D759EEA19C9D13100B6CEF3 /* Mock */,
+				3D759EE919C9D11C00B6CEF3 /* Models */,
+				3D759EE819C9D0F700B6CEF3 /* Library */,
+				3D759EE719C9D08F00B6CEF3 /* Constants */,
 				3D759EC219C9CF3900B6CEF3 /* AppDelegate.h */,
 				3D759EC319C9CF3900B6CEF3 /* AppDelegate.m */,
-				3D759EC819C9CF3900B6CEF3 /* MasterViewController.h */,
-				3D759EC919C9CF3900B6CEF3 /* MasterViewController.m */,
-				3D759ECB19C9CF3900B6CEF3 /* DetailViewController.h */,
-				3D759ECC19C9CF3900B6CEF3 /* DetailViewController.m */,
 				3D759ECE19C9CF3900B6CEF3 /* Main.storyboard */,
 				3D759ED119C9CF3900B6CEF3 /* Images.xcassets */,
 				3D759EC519C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld */,
@@ -122,6 +143,121 @@
 				3D759EDC19C9CF3900B6CEF3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D759EE719C9D08F00B6CEF3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		3D759EE819C9D0F700B6CEF3 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EF819C9D3ED00B6CEF3 /* Services */,
+				3D759EF419C9D24900B6CEF3 /* Null */,
+				3D759EF319C9D24100B6CEF3 /* Date */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		3D759EE919C9D11C00B6CEF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3D759EEA19C9D13100B6CEF3 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
+		3D759EEB19C9D14600B6CEF3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EF719C9D36A00B6CEF3 /* Beacons */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		3D759EEC19C9D16800B6CEF3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EF519C9D2E300B6CEF3 /* Master */,
+				3D759EF619C9D2EC00B6CEF3 /* Detail */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3D759EF319C9D24100B6CEF3 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EEF19C9D23800B6CEF3 /* NSDate+Utilities.h */,
+				3D759EF019C9D23800B6CEF3 /* NSDate+Utilities.m */,
+			);
+			name = Date;
+			sourceTree = "<group>";
+		};
+		3D759EF419C9D24900B6CEF3 /* Null */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EED19C9D23800B6CEF3 /* NSNull+Utilities.h */,
+				3D759EEE19C9D23800B6CEF3 /* NSNull+Utilities.m */,
+			);
+			name = Null;
+			sourceTree = "<group>";
+		};
+		3D759EF519C9D2E300B6CEF3 /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EC819C9CF3900B6CEF3 /* MasterViewController.h */,
+				3D759EC919C9CF3900B6CEF3 /* MasterViewController.m */,
+			);
+			name = Master;
+			sourceTree = "<group>";
+		};
+		3D759EF619C9D2EC00B6CEF3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3D759ECB19C9CF3900B6CEF3 /* DetailViewController.h */,
+				3D759ECC19C9CF3900B6CEF3 /* DetailViewController.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		3D759EF719C9D36A00B6CEF3 /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Beacons;
+			sourceTree = "<group>";
+		};
+		3D759EF819C9D3ED00B6CEF3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EF919C9D3FF00B6CEF3 /* Beacons */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		3D759EF919C9D3FF00B6CEF3 /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+				3D759EFA19C9D43E00B6CEF3 /* IBeacon.h */,
+				3D759EFB19C9D43E00B6CEF3 /* IBeacon.m */,
+				3D759EFD19C9D57800B6CEF3 /* BeaconMonitor.h */,
+				3D759EFE19C9D57800B6CEF3 /* BeaconMonitor.m */,
+				3D759F0019C9D78C00B6CEF3 /* BeaconProtocols.h */,
+				3D759F0119C9D78C00B6CEF3 /* BeaconProtocols.m */,
+				3D759F0319C9DD8100B6CEF3 /* BeaconDefinition.h */,
+				3D759F0419C9DD8100B6CEF3 /* BeaconDefinition.m */,
+				3DC425CB19C9E99000DA39E9 /* BeaconProximity.h */,
+			);
+			name = Beacons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,9 +361,15 @@
 			files = (
 				3D759ECD19C9CF3900B6CEF3 /* DetailViewController.m in Sources */,
 				3D759ECA19C9CF3900B6CEF3 /* MasterViewController.m in Sources */,
+				3D759EFF19C9D57800B6CEF3 /* BeaconMonitor.m in Sources */,
+				3D759EF119C9D23800B6CEF3 /* NSNull+Utilities.m in Sources */,
 				3D759EC719C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld in Sources */,
+				3D759F0219C9D78C00B6CEF3 /* BeaconProtocols.m in Sources */,
 				3D759EC419C9CF3900B6CEF3 /* AppDelegate.m in Sources */,
+				3D759EFC19C9D43E00B6CEF3 /* IBeacon.m in Sources */,
 				3D759EC119C9CF3900B6CEF3 /* main.m in Sources */,
+				3D759F0519C9DD8100B6CEF3 /* BeaconDefinition.m in Sources */,
+				3D759EF219C9D23800B6CEF3 /* NSDate+Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +556,7 @@
 				3D759EE319C9CF3900B6CEF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D759EE419C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augemented Reality Production LineTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +565,7 @@
 				3D759EE619C9CF3900B6CEF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
