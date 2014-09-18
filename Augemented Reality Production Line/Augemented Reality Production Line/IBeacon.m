@@ -7,57 +7,92 @@
 //
 
 #import "IBeacon.h"
+#import "BeaconMonitor.h"
+#import "BeaconMonitorResult.h"
 
 @implementation IBeacon
 
 /* Synthesize all of the proeprties that we wish to be available within this 
         instance of the class */
 
-@synthesize initialised;
 @synthesize beaconsFoundDelegate;
-@synthesize lastSelection;
-@synthesize changedCount;
+@synthesize monitors;
+@synthesize isMonitoring;
+@synthesize Results;
+
 
 /* Terminate all Monitoring currently in progress from this instance */
 
 -(void)terminateMonitoring{
+
+    for (BeaconMonitor *monitor in monitors) {
+        [monitor terminateMonitoring];
+    }
+    /* No Longer Monitoring */
     
-    [locationManager stopMonitoringForRegion:locationRegion];
-    [locationManager stopRangingBeaconsInRegion:locationRegion];
+    isMonitoring=false;
 }
 
 /* Delegate invoked when the User securitizes the Location Service in the general settings
     section of the iPad..... */
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-    NSLog(@"Authorise Status: %d", status);
+    
+    /* If we are monitoring and the user restricts access then stop monitoring otherwise
+        if we are not monitoring and the user allows monitoring the start monitoring */
+    
+    switch(status){
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            if(!isMonitoring){
+                [self startMonitoring];
+            }
+        default:
+            if(isMonitoring){
+                [self terminateMonitoring];
+            }
+    }
+}
+
+-(void)addBeaconToMonitor:(BeaconDefinition *)definition{
+
+    /* Get the beacon key.... */
+    
+    NSString *key =[BeaconDefinition beaconKeyFromBeacon:definition];
+
+    /* If the beacon with this key is not aleady being monitored..... */
+   
+    if(![monitors objectForKey:key] ){
+
+        /* Create the Monitor */
+        
+        BeaconMonitor *monitor = [[BeaconMonitor alloc]initWithBeacon:definition];
+
+        /* Ensure that this class acts as the delegate for any beacons found events */
+        
+        monitor.beaconsFoundDelegate=self;
+        
+        /* Add the key to the Monitors collection */
+        
+        [monitors setObject:monitor forKey:key];
+        
+        /* And start monitoring if the other beacons are monitoring */
+        
+        if (isMonitoring) {
+            [monitor startMonitoring];
+        }
+    }
 }
 
 /* Initialisation code for this class */
 
-- (instancetype)init
+- (instancetype)initWithBeacons:(NSMutableArray *)beacons
 {
     self = [super init];
     if (self) {
-        
-        /* Initialise the Manager */
-        
-        locationManager=[[CLLocationManager alloc]init];
-        
-        /* And set the delegate up */
-        
-        locationManager.delegate=self;
-
-        /* And now Start updating the Location..... */
-        
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [self.locationManager requestAlwaysAuthorization];
+        for (BeaconDefinition *def in beacons) {
+            [self addBeaconToMonitor:def];
         }
-        
-        lastSelection = [[NSMutableArray alloc]init];
-        
-        [locationManager startUpdatingLocation];
-
     }
     return self;
 }
@@ -67,111 +102,68 @@
 -(void)startMonitoring{
     
     /* Get the Proximity ID */
-    
-    if(CLLocationManager.locationServicesEnabled
-    &&
-       CLLocationManager.authorizationStatus==kCLAuthorizationStatusAuthorizedAlways){
-        NSUUID *proximityID = [[NSUUID alloc]initWithUUIDString:UUID];
-    
-    /* Initialise the Beacon with the Proximity ID and the Identifier */
-    
-        locationRegion = [[CLBeaconRegion alloc]initWithProximityUUID:proximityID identifier:REGION];
 
-        locationRegion.notifyOnEntry=YES;
-        locationRegion.notifyOnExit=YES;
-    
-    /* And Now Start the monitoring  */
+    if(!isMonitoring){
+
+        for (BeaconMonitor *monitor in monitors) {
+            [monitor startMonitoring];
+        }
         
-        if([CLLocationManager isRangingAvailable]==YES  ){
-            [locationManager startRangingBeaconsInRegion:locationRegion];
-        }
-        initialised=YES;
+        isMonitoring=YES;
     }
 }
 
-/* Delegate used to report on any failures when monitoring a region...... */
+/* Handle the list of beacons changing from any one of the underlying beacons monitors.....*/
 
-- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    NSLog(@"Failed monitoring region: %@", error);
-}
-
-/* Delegate used to report any general errors from the LocationManager */
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"Location manager failed: %@", error);
-}
-
-/* Delegate used to report that a region was entered ..... */
-
-- (void)locationManager:(CLLocationManager *)manager
-         didEnterRegion:(CLRegion *)region{
+- (void)onBeaconsChanged:(NSMutableDictionary *)beacons BeaconKey:(NSString *)beaconKey {
     
-}
-
-/* Delegate used to report that a region was exited ..... */
-
-- (void)locationManager:(CLLocationManager *)manager
-          didExitRegion:(CLRegion *)region{
+    BOOL allCompiled=YES;
     
-}
-
-/* Delegate used to report that monitoring was invoked on a region ..... */
-
-- (void) locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
-{
-}
-
-/* Delegate used to report thatthe state is being determined upon a region ..... */
-
-- (void) locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-}
-
-/* Method used to invoke the calling of the delegates that are called whenever the list of 
-        beacons has changed.....*/
-
--(void)beaconsHaveChanged{
-    if(self.beaconsFoundDelegate && [self.beaconsFoundDelegate respondsToSelector:@selector(onBeaconsChanged:)]){
-        [self.beaconsFoundDelegate onBeaconsChanged:lastSelection];
-    }
-}
-
-/* Delegate invoked from the LocationManager to report that beacons have been ranged.... */
-
-- (void) locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
-{
+    /* If the results were all run through we destroyed the objects.. so recreate for another go 
+            through */
     
-    /* Create a temporary Array... */
-    
-    NSMutableArray *beaconsInRange = [[NSMutableArray alloc]init];
+    if(!Results){
 
-    /* Now iterate over all of the beacons found and add the beacons found within the
-            required proximities to the temporary collection ...... */
-    
-    for (CLBeacon *beacon in beacons) {
-        CLProximity prox = beacon.proximity;
-        switch (prox) {
-            case CLProximityImmediate:
-            case CLProximityNear:{
-                [beaconsInRange addObject:beacon];
-                break;
-            }
-            default:
-                break;
+        /* Recreate the Results Dictionary with all of the 
+            available keys */
+        
+        Results = [[NSMutableDictionary alloc]init];
+        for (BeaconMonitor *monitor in monitors) {
+            [Results setObject:[[BeaconMonitorResult alloc]init] forKey:monitor.BeaconKey];
         }
     }
 
-    /* If the number of beacons in the collections is different to the number last found then
-            we invoke the delegate which forces the app to refresh itself..... */
+    /* Get the current Beacon Monitor and assign the results delivered into it.... */
     
-    if(beaconsInRange.count!=lastSelection.count){
-        changedCount++;
-        if(changedCount>2){
-            lastSelection=beaconsInRange;
-            [self beaconsHaveChanged];
-            changedCount=0;
+    BeaconMonitorResult *res = [Results objectForKey:beaconKey];
+    if (res) {
+        res.results=beacons;
+    }
+    
+    /* Now Iterate over the results collection and if at least one is incomplete then mark the operation
+        as not yet complete so that we dont notify the caller too much */
+    
+    for (BeaconMonitorResult *mr in Results) {
+        if(!mr.results){
+            allCompiled=false;
+            break;
         }
-    }else{
-        changedCount=0;
+    }
+    
+    /* OK. Once all of the results have been compiled we create one dictionary that has COPIES of the
+            data and we use that to nitify the calling app that the data has changed.... This way we avoid reference issues. */
+    
+    if(allCompiled){
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+        
+        for (BeaconMonitor *mon in monitors) {
+            [dict addEntriesFromDictionary:[mon.availableBeacons mutableCopy]];
+        }
+        [self.beaconsFoundDelegate onBeaconsChanged:dict];
+
+        /* Reset the Results collection as .... we will start the process over again */
+        
+        Results=nil;
     }
 }
 

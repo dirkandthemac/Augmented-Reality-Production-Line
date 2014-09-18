@@ -15,10 +15,12 @@
 
 @property (nonatomic,strong) BeaconDefinition* beaconDefintion;
 
+@property(nonatomic,strong) NSString* BeaconKey;
+
 /* The property to which the delegate for the beacons protocol is assigned
  */
 
-@property(nonatomic,weak)id<BeaconsFoundDelegate> beaconsFoundDelegate;
+@property(nonatomic,weak)id<BeaconMonitorFoundDelegate> beaconsFoundDelegate;
 
 /* The Location Manager for the Beacons Interface */
 
@@ -27,7 +29,6 @@
 /* The Region that we are interested in... */
 
 @property(nonatomic,strong) CLBeaconRegion* locationRegion;
-
 
 /* Specifies if the Beacons Class has been initialised.... */
 
@@ -53,5 +54,10 @@
 
 -(void) beaconsHaveChanged;
 
+/* Method use to add the beacons found to the beacons collection if they need adding.....
+    Found Beacons will be added immediately... Lost beacons will have a die time
+        so allowing for any low energy spokes to be evened out..... */
+
+-(BOOL) addBeacons:(NSMutableDictionary*)foundBeacons;
 
 @end

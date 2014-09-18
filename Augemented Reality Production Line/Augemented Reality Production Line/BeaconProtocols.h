@@ -20,6 +20,11 @@
 -(void) onBeaconsChanged:(NSMutableDictionary*)beacons;
 @end
 
+@protocol BeaconMonitorFoundDelegate <NSObject>
+@required
+-(void) onBeaconsChanged:(NSMutableDictionary*)beacons BeaconKey:(NSString*) beaconKey;
+@end
+
 
 @interface BeaconProtocols : NSObject
 

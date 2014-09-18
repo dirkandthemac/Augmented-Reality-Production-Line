@@ -12,15 +12,29 @@
 
 @interface BeaconDefinition : NSObject
 
-@property NSString* Uuid;
+@property NSUUID* Uuid;
 @property NSString* Region;
-@property NSInteger MajorId;
-@property NSInteger MinorId;
+@property NSNumber* MajorId;
+@property NSNumber* MinorId;
 @property NSInteger scansSinceFound;
 @property BeaconProximity beaconProximity;
 
 -(instancetype)init;
 
+-(instancetype) initWithClBeacon:(CLBeacon*) beacon;
+
+-(instancetype) initWithData:(NSString*) uid major:(NSNumber*) major minor:(NSNumber*)minor region:(NSString*) region Proximity:(BeaconProximity) proximity;
+
+/* Returns whether or not the Proximity passed is within the defined range specified by the user */
+
 -(BOOL) isProximateTo:(CLProximity)proximity;
+
+/* Creates a beacon key from a CLBeacon object. This will be unique and can be used for dictionaries etc */
+
++(NSString*) beaconKeyFromCLBeacon:(CLBeacon*)beacon;
+
+/* Creates a beacon key from a Beacon Definiton object. This will be unique and can be used for dictionaries etc */
+
++(NSString*) beaconKeyFromBeacon:(BeaconDefinition*)beacon;
 
 @end

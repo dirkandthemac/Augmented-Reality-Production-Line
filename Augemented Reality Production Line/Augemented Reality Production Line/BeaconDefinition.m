@@ -26,6 +26,28 @@
     return self;
 }
 
+-(instancetype)initWithClBeacon:(CLBeacon *)beacon{
+    
+    self=[self init];
+    if(self){
+        self.Uuid=beacon.proximityUUID;
+        self.MajorId=beacon.major;
+        self.MinorId=beacon.minor;
+    }
+    return self;
+}
+
+-(instancetype)initWithData:(NSString *)uid major:(NSNumber *)major minor:(NSNumber *)minor region:(NSString *)region Proximity:(BeaconProximity)proximity{
+    self=[super init];
+    if(self){
+        Uuid=[[NSUUID alloc]initWithUUIDString:uid];
+        MajorId=major;
+        MinorId=minor;
+        Region=region;
+        beaconProximity = proximity;
+    }
+    return self;
+}
 -(BOOL)isProximateTo:(CLProximity)proximity{
     
     switch (proximity) {
@@ -40,4 +62,11 @@
     }
 }
 
++(NSString *)beaconKeyFromCLBeacon:(CLBeacon *)beacon{
+    return [NSString stringWithFormat:@"%@-%@-%@",beacon.proximityUUID,beacon.major,beacon.minor];
+}
+
++(NSString *)beaconKeyFromBeacon:(BeaconDefinition *)beacon{
+    return [NSString stringWithFormat:@"%@-%ld-%ld",beacon.Uuid,(long)beacon.MajorId,(long)beacon.MinorId];
+}
 @end
