@@ -18,9 +18,20 @@
             
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    /* Obtain a ref to the Split View Controller */
+    
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+
+
+    /* And thence to the tab Bar Controller */
+    
+    UITabBarController *tbc = [splitViewController.viewControllers lastObject];
+
+    /* Now we can find the navigation Controller */
+    
+    UINavigationController *navigationController =tbc.viewControllers[0];
+
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
 

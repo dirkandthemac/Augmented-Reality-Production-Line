@@ -8,13 +8,15 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-
+#import "ProductionLine.h"
 @interface MasterViewController ()
 
 @end
 
 @implementation MasterViewController
-            
+
+@synthesize AllProductionLines;
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -23,14 +25,50 @@
     }
 }
 
+- (void) LoadProductionLines{
+    
+    /* OK. Load all of the Production Lines */
+    
+    AugmentedRealityWS *ws = [[AugmentedRealityWS alloc]initWithLocalSource];
+    ws.ProductionLineLoadingDelegate=self;
+    [ws getProductionLines];
+    
+}
+
+- (void)onProductionLineLoaded:(NSDictionary *)ProductionLines{
+    self.AllProductionLines=ProductionLines;
+}
+
+-(void)onProductionLineLoadingError:(NSError *)ConnectionError{
+    
+}
+
+-(ProductionLine*)getSelectedProductionLine{
+    return [self getProductionLineByIndexPath:[self.tableView indexPathForSelectedRow]];
+}
+
+-(ProductionLine*)getProductionLineByIndexPath:(NSIndexPath*) indexPath{
+    
+    NSArray *keys = [AllProductionLines allKeys];
+    id key = [keys objectAtIndex:indexPath.row];
+    ProductionLine *line = [AllProductionLines objectForKey:key];
+    return line;
+}
+
 - (void)viewDidLoad {
+   
     [super viewDidLoad];
+    
+    /* Now Load the Production Lines */
+    
+    [self LoadProductionLines];
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] viewControllers][0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +77,7 @@
 }
 
 - (void)insertNewObject:(id)sender {
+    /*
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
@@ -55,29 +94,52 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+     */
 }
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+
+        /* Get the Currently selected Production Line */
+        
+        ProductionLine *line = [self getSelectedProductionLine];
+
+        /* Now get a reference to the detail controller that we are going to pass of this
+         project to.... */
+        
+        UITabBarController *tbc = [segue destinationViewController];
+        
+        for (UINavigationController *nav in tbc.viewControllers) {
+            
+            /* Set the View Controller that we want to Interface with .... */
+            
+            UIViewController *ctl = (UIViewController*)[nav topViewController];
+
+            /* Set the Bar Back Button..... */
+            
+            ctl.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+            /*
+            PimpedWS *ws = [[PimpedWS alloc] initWithLocalSource];
+            ws.projectLoadingDelegate=(DetailViewController*)ctl;
+            [ws getProjectById:project.Id];
+             */
+        }
     }
 }
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
+    return 1;
+//    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    return AllProductionLines.count;
+//    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,10 +150,11 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -104,11 +167,15 @@
             abort();
         }
     }
+     */
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+
+    NSArray *keys = [AllProductionLines allKeys];
+    id key = [keys objectAtIndex:indexPath.row];
+    ProductionLine *line = [AllProductionLines objectForKey:key];
+    cell.textLabel.text=line.LineName;
 }
 
 #pragma mark - Fetched results controller

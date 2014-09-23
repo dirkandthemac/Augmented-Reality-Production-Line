@@ -10,4 +10,16 @@
 
 @implementation AugmentedRealityWSLocalSource
 
+/* Helper Method */
+
+- (NSData *)loadLocalJSONData:(NSString *)filename{
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:filename ofType:@"json"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
+    return data;
+}
+
+-(NSData*) onProductionLinesDataLoad{
+    return [self loadLocalJSONData:@"productionlines"];
+}
+
 @end

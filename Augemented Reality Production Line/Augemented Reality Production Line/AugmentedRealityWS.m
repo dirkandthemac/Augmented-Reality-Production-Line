@@ -59,7 +59,7 @@ NSString *const PRODUCTION_LINES_URL = BASE_URL@"/ProductionLines";
             NSMutableDictionary *productionLines = [[NSMutableDictionary alloc] init];
             for(NSDictionary *line in lines){
                 ProductionLine *pl=[[ProductionLine alloc]initWithData:line];
-                [productionLines setObject:pl forKey:pl.BeaconUid];
+                [productionLines setObject:pl forKey:pl.UniqueBeaconID];
             }
 
             if(self.ProductionLineLoadingDelegate && [self.ProductionLineLoadingDelegate respondsToSelector:@selector(onProductionLineLoaded:)]){

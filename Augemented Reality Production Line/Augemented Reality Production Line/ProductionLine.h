@@ -12,5 +12,10 @@
 @interface ProductionLine : JSONModelsBase
 
 @property (nonatomic,strong) NSString* BeaconUid;
+@property (nonatomic,strong) NSNumber* MajorId;
+@property (nonatomic,strong) NSNumber* MinorId;
+@property (nonatomic,strong) NSString* LineName;
+
+-(NSString*) UniqueBeaconID;
 
 @end

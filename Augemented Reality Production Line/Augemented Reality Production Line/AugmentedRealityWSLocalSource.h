@@ -11,4 +11,10 @@
 
 @interface AugmentedRealityWSLocalSource : NSObject <FetchDelegates>
 
+/* Helper Method */
+
+- (NSData *)loadLocalJSONData:(NSString *)filename;
+
+-(NSData*) onProductionLinesDataLoad;
+
 @end
