@@ -28,6 +28,15 @@
 		3DC425DB19CB38BC00DA39E9 /* WebServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC425DA19CB38BC00DA39E9 /* WebServiceBase.m */; };
 		3DC425DE19CB450100DA39E9 /* ProductionLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC425DD19CB450100DA39E9 /* ProductionLine.m */; };
 		3DC425E419CB472B00DA39E9 /* JSONModelsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC425E319CB472B00DA39E9 /* JSONModelsBase.m */; };
+		3DDDF36919D2C75700BAEF73 /* DetailViewContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDF36819D2C75700BAEF73 /* DetailViewContainerController.m */; };
+		3DDDF36C19D312F400BAEF73 /* spring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF36B19D312F400BAEF73 /* spring.jpg */; };
+		3DDDF36F19D3155800BAEF73 /* pipeline.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF36D19D3155800BAEF73 /* pipeline.jpg */; };
+		3DDDF37019D3155800BAEF73 /* wire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF36E19D3155800BAEF73 /* wire.jpg */; };
+		3DDDF37419D31CEF00BAEF73 /* green_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF37119D31CEF00BAEF73 /* green_light.png */; };
+		3DDDF37519D31CEF00BAEF73 /* red_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF37219D31CEF00BAEF73 /* red_light.png */; };
+		3DDDF37619D31CEF00BAEF73 /* yellow_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF37319D31CEF00BAEF73 /* yellow_light.png */; };
+		3DDDF37919D3281400BAEF73 /* animal_muppet_picture_jpg..jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF37719D3281400BAEF73 /* animal_muppet_picture_jpg..jpg */; };
+		3DDDF37A19D3281400BAEF73 /* cookiemonster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDF37819D3281400BAEF73 /* cookiemonster.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +91,16 @@
 		3DC425DD19CB450100DA39E9 /* ProductionLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductionLine.m; sourceTree = "<group>"; };
 		3DC425E219CB472B00DA39E9 /* JSONModelsBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelsBase.h; sourceTree = "<group>"; };
 		3DC425E319CB472B00DA39E9 /* JSONModelsBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelsBase.m; sourceTree = "<group>"; };
+		3DDDF36719D2C75700BAEF73 /* DetailViewContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewContainerController.h; sourceTree = "<group>"; };
+		3DDDF36819D2C75700BAEF73 /* DetailViewContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewContainerController.m; sourceTree = "<group>"; };
+		3DDDF36B19D312F400BAEF73 /* spring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spring.jpg; sourceTree = "<group>"; };
+		3DDDF36D19D3155800BAEF73 /* pipeline.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pipeline.jpg; sourceTree = "<group>"; };
+		3DDDF36E19D3155800BAEF73 /* wire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wire.jpg; sourceTree = "<group>"; };
+		3DDDF37119D31CEF00BAEF73 /* green_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_light.png; sourceTree = "<group>"; };
+		3DDDF37219D31CEF00BAEF73 /* red_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_light.png; sourceTree = "<group>"; };
+		3DDDF37319D31CEF00BAEF73 /* yellow_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_light.png; sourceTree = "<group>"; };
+		3DDDF37719D3281400BAEF73 /* animal_muppet_picture_jpg..jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animal_muppet_picture_jpg..jpg; sourceTree = "<group>"; };
+		3DDDF37819D3281400BAEF73 /* cookiemonster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cookiemonster.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +159,7 @@
 		3D759EBD19C9CF3900B6CEF3 /* Augemented Reality Production Line */ = {
 			isa = PBXGroup;
 			children = (
+				3DDDF36A19D312D100BAEF73 /* Images */,
 				3D759EEC19C9D16800B6CEF3 /* Controllers */,
 				3D759EEB19C9D14600B6CEF3 /* Services */,
 				3D1A2F3319D1A869000B81BD /* Mock */,
@@ -228,6 +248,7 @@
 		3D759EEC19C9D16800B6CEF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3DDDF36619D2C72900BAEF73 /* DetailViewContainer */,
 				3D759EF519C9D2E300B6CEF3 /* Master */,
 				3D759EF619C9D2EC00B6CEF3 /* Detail */,
 			);
@@ -325,6 +346,30 @@
 			name = Json;
 			sourceTree = "<group>";
 		};
+		3DDDF36619D2C72900BAEF73 /* DetailViewContainer */ = {
+			isa = PBXGroup;
+			children = (
+				3DDDF36719D2C75700BAEF73 /* DetailViewContainerController.h */,
+				3DDDF36819D2C75700BAEF73 /* DetailViewContainerController.m */,
+			);
+			name = DetailViewContainer;
+			sourceTree = "<group>";
+		};
+		3DDDF36A19D312D100BAEF73 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3DDDF37719D3281400BAEF73 /* animal_muppet_picture_jpg..jpg */,
+				3DDDF37819D3281400BAEF73 /* cookiemonster.jpg */,
+				3DDDF37119D31CEF00BAEF73 /* green_light.png */,
+				3DDDF37219D31CEF00BAEF73 /* red_light.png */,
+				3DDDF37319D31CEF00BAEF73 /* yellow_light.png */,
+				3DDDF36D19D3155800BAEF73 /* pipeline.jpg */,
+				3DDDF36E19D3155800BAEF73 /* wire.jpg */,
+				3DDDF36B19D312F400BAEF73 /* spring.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -405,8 +450,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDDF36F19D3155800BAEF73 /* pipeline.jpg in Resources */,
+				3DDDF36C19D312F400BAEF73 /* spring.jpg in Resources */,
+				3DDDF37519D31CEF00BAEF73 /* red_light.png in Resources */,
 				3D759ED019C9CF3900B6CEF3 /* Main.storyboard in Resources */,
+				3DDDF37919D3281400BAEF73 /* animal_muppet_picture_jpg..jpg in Resources */,
+				3DDDF37419D31CEF00BAEF73 /* green_light.png in Resources */,
+				3DDDF37619D31CEF00BAEF73 /* yellow_light.png in Resources */,
 				3D1A2F3519D1AF19000B81BD /* productionlines.json in Resources */,
+				3DDDF37019D3155800BAEF73 /* wire.jpg in Resources */,
+				3DDDF37A19D3281400BAEF73 /* cookiemonster.jpg in Resources */,
 				3D759ED219C9CF3900B6CEF3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +489,7 @@
 				3DC425E419CB472B00DA39E9 /* JSONModelsBase.m in Sources */,
 				3DC425D119CB1B3600DA39E9 /* BeaconMonitorResult.m in Sources */,
 				3D759EFC19C9D43E00B6CEF3 /* IBeacon.m in Sources */,
+				3DDDF36919D2C75700BAEF73 /* DetailViewContainerController.m in Sources */,
 				3DC425DE19CB450100DA39E9 /* ProductionLine.m in Sources */,
 				3DC425D519CB314D00DA39E9 /* AugmentedRealityWS.m in Sources */,
 				3D759EC119C9CF3900B6CEF3 /* main.m in Sources */,

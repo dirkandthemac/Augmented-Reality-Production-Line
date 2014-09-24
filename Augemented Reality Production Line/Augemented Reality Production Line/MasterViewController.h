@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "AugmentedRealityWS.h"
+#import "DetailViewContainerController.h"
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate,ProductionLineLoadingDelegate>
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate,ProductionLineLoadingDelegate,LoadControllersDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) DetailViewContainerController *detailViewContainerController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

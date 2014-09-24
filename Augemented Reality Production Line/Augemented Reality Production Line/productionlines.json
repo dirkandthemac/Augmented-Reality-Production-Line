@@ -1,1 +1,1 @@
-[{"$id":"1","BeaconUID":"B9407F30-F5F8-466E-AFF9-25556B57FE6D","MajorID":6427,"MinorID":56287,"LineName":"Spring Production"},{"$id":"2","BeaconUID":"B9407F30-F5F8-466E-AFF9-25556B57FE6D","MajorID":56673,"MinorID":4079,"LineName":"Delivery Bay"}]
+[{"$id":"1","BeaconUID":"B9407F30-F5F8-466E-AFF9-25556B57FE6D","MajorID":6427,"MinorID":56287,"LineName":"Spring Production","Controller":"SpringController"},{"$id":"2","BeaconUID":"B9407F30-F5F8-466E-AFF9-25556B57FE6D","MajorID":56673,"MinorID":4079,"LineName":"Delivery Bay","Controller":"DeliveryController"}]

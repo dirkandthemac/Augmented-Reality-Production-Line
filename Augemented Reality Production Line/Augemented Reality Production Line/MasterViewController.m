@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "ProductionLine.h"
+
 @interface MasterViewController ()
 
 @end
@@ -23,6 +24,17 @@
         self.clearsSelectionOnViewWillAppear = NO;
         self.preferredContentSize = CGSizeMake(320.0, 600.0);
     }
+}
+
+-(NSDictionary *)onRequestControllers{
+
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    
+    for (ProductionLine *p in [AllProductionLines objectEnumerator]) {
+        [dict setValue:p.ControllerName forKey:p.UniqueBeaconID];
+    }
+    
+    return dict;
 }
 
 - (void) LoadProductionLines{
@@ -68,7 +80,16 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] viewControllers][0];
+    
+    /*
+    self.detailViewContainerController = (DetailViewContainerController *)[[[self.splitViewController.viewControllers lastObject] viewControllers][0] viewControllers][0];
+*/
+    self.detailViewContainerController = (DetailViewContainerController *)[[self.splitViewController.viewControllers lastObject] viewControllers][0];
+    
+    /* Set the Delegate for loading to this Controller */
+    
+    self.detailViewContainerController.loadControllersDelegate=self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,6 +151,12 @@
 }
 
 #pragma mark - Table View
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if([indexPath row] < 3) {
+        [self.detailViewContainerController showViewUid:[self getSelectedProductionLine].UniqueBeaconID];
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

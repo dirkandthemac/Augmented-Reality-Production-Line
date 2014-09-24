@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSNumber* MajorId;
 @property (nonatomic,strong) NSNumber* MinorId;
 @property (nonatomic,strong) NSString* LineName;
+@property (nonatomic,strong) NSString* ControllerName;
 
 -(NSString*) UniqueBeaconID;
 

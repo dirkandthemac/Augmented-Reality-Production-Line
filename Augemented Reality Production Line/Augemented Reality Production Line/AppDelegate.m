@@ -16,28 +16,45 @@
 
 @implementation AppDelegate
             
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application Old_didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     
     /* Obtain a ref to the Split View Controller */
     
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-
-
+    
+    
     /* And thence to the tab Bar Controller */
     
     UITabBarController *tbc = [splitViewController.viewControllers lastObject];
-
+    
     /* Now we can find the navigation Controller */
     
     UINavigationController *navigationController =tbc.viewControllers[0];
-
+    
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
-
+    
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+
+    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+    splitViewController.delegate = self;
+    
+    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
+    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
+    controller.managedObjectContext = self.managedObjectContext;
+
+//    splitViewController.delegate = (id)navigationController.topViewController;
     return YES;
 }
 

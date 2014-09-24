@@ -15,6 +15,7 @@
 @synthesize MajorId;
 @synthesize MinorId;
 @synthesize LineName;
+@synthesize ControllerName;
 
 -(instancetype)initWithData:(NSDictionary *)data{
 
@@ -25,12 +26,13 @@
         self.MajorId=[data objectForKey:@"MajorID"];
         self.MinorId=[data objectForKey:@"MinorID"];
         self.LineName=[NSNull handleNulls:[data objectForKey:@"LineName"]];
-
+        self.ControllerName=[NSNull handleNulls:[data objectForKey:@"Controller"]];
     }
     return self;
 }
 
 -(NSString *)UniqueBeaconID{
-    return [NSString stringWithFormat:@"%@-%@-%@",BeaconUid,MajorId,MinorId];
+    NSString *uuid=[NSString stringWithFormat:@"%@-%@-%@",BeaconUid,MajorId,MinorId];
+    return uuid;
 }
 @end
