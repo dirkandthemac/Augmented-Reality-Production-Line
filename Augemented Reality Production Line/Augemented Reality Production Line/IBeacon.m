@@ -70,7 +70,7 @@
 
         /* Ensure that this class acts as the delegate for any beacons found events */
         
-        monitor.beaconsFoundDelegate=self;
+        monitor.beaconMonitorFoundDelegate=self;
         
         /* Add the key to the Monitors collection */
         
@@ -90,6 +90,7 @@
 {
     self = [super init];
     if (self) {
+        monitors=[[NSMutableDictionary alloc]init];
         for (BeaconDefinition *def in beacons) {
             [self addBeaconToMonitor:def];
         }
@@ -105,7 +106,7 @@
 
     if(!isMonitoring){
 
-        for (BeaconMonitor *monitor in monitors) {
+        for (BeaconMonitor *monitor in [monitors objectEnumerator]) {
             [monitor startMonitoring];
         }
         
@@ -128,7 +129,7 @@
             available keys */
         
         Results = [[NSMutableDictionary alloc]init];
-        for (BeaconMonitor *monitor in monitors) {
+        for (BeaconMonitor *monitor in [monitors objectEnumerator]) {
             [Results setObject:[[BeaconMonitorResult alloc]init] forKey:monitor.BeaconKey];
         }
     }
@@ -143,7 +144,7 @@
     /* Now Iterate over the results collection and if at least one is incomplete then mark the operation
         as not yet complete so that we dont notify the caller too much */
     
-    for (BeaconMonitorResult *mr in Results) {
+    for (BeaconMonitorResult *mr in [Results objectEnumerator]) {
         if(!mr.results){
             allCompiled=false;
             break;
@@ -156,8 +157,8 @@
     if(allCompiled){
         NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
         
-        for (BeaconMonitor *mon in monitors) {
-            [dict addEntriesFromDictionary:[mon.availableBeacons mutableCopy]];
+        for (BeaconMonitor *mon in [monitors objectEnumerator]) {
+            [dict addEntriesFromDictionary:mon.availableBeacons];
         }
         [self.beaconsFoundDelegate onBeaconsChanged:dict];
 

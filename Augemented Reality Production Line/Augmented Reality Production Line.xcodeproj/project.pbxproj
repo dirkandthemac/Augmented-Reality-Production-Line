@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3D1A2F3519D1AF19000B81BD /* productionlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D1A2F3419D1AF19000B81BD /* productionlines.json */; };
+		3D4FAEB619D438EC009C8297 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4FAEB519D438EC009C8297 /* CoreLocation.framework */; };
+		3D4FAEB819D43AB3009C8297 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4FAEB719D43AB3009C8297 /* MapKit.framework */; };
 		3D759EC119C9CF3900B6CEF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EC019C9CF3900B6CEF3 /* main.m */; };
 		3D759EC419C9CF3900B6CEF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EC319C9CF3900B6CEF3 /* AppDelegate.m */; };
-		3D759EC719C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EC519C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld */; };
+		3D759EC719C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EC519C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodeld */; };
 		3D759ECA19C9CF3900B6CEF3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759EC919C9CF3900B6CEF3 /* MasterViewController.m */; };
 		3D759ECD19C9CF3900B6CEF3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D759ECC19C9CF3900B6CEF3 /* DetailViewController.m */; };
 		3D759ED019C9CF3900B6CEF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D759ECE19C9CF3900B6CEF3 /* Main.storyboard */; };
@@ -51,19 +53,21 @@
 
 /* Begin PBXFileReference section */
 		3D1A2F3419D1AF19000B81BD /* productionlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productionlines.json; sourceTree = "<group>"; };
-		3D759EBB19C9CF3900B6CEF3 /* Augemented Reality Production Line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Augemented Reality Production Line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D4FAEB519D438EC009C8297 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3D4FAEB719D43AB3009C8297 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D759EBB19C9CF3900B6CEF3 /* Augmented Reality Production Line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Augmented Reality Production Line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D759EBF19C9CF3900B6CEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D759EC019C9CF3900B6CEF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D759EC219C9CF3900B6CEF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D759EC319C9CF3900B6CEF3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D759EC619C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Augemented_Reality_Production_Line.xcdatamodel; sourceTree = "<group>"; };
+		3D759EC619C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Augemnted_Reality_Production_Line.xcdatamodel; sourceTree = "<group>"; };
 		3D759EC819C9CF3900B6CEF3 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		3D759EC919C9CF3900B6CEF3 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		3D759ECB19C9CF3900B6CEF3 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3D759ECC19C9CF3900B6CEF3 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3D759ECF19C9CF3900B6CEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D759ED119C9CF3900B6CEF3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3D759ED719C9CF3900B6CEF3 /* Augemented Reality Production LineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Augemented Reality Production LineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D759ED719C9CF3900B6CEF3 /* Augmented Reality Production LineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Augmented Reality Production LineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D759EDC19C9CF3900B6CEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D759EDD19C9CF3900B6CEF3 /* Augemented_Reality_Production_LineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Augemented_Reality_Production_LineTests.m; sourceTree = "<group>"; };
 		3D759EED19C9D23800B6CEF3 /* NSNull+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Utilities.h"; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4FAEB819D43AB3009C8297 /* MapKit.framework in Frameworks */,
+				3D4FAEB619D438EC009C8297 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +147,10 @@
 		3D759EB219C9CF3800B6CEF3 = {
 			isa = PBXGroup;
 			children = (
-				3D759EBD19C9CF3900B6CEF3 /* Augemented Reality Production Line */,
-				3D759EDA19C9CF3900B6CEF3 /* Augemented Reality Production LineTests */,
+				3D4FAEB719D43AB3009C8297 /* MapKit.framework */,
+				3D4FAEB519D438EC009C8297 /* CoreLocation.framework */,
+				3D759EBD19C9CF3900B6CEF3 /* Augmented Reality Production Line */,
+				3D759EDA19C9CF3900B6CEF3 /* Augmented Reality Production LineTests */,
 				3D759EBC19C9CF3900B6CEF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,13 +158,13 @@
 		3D759EBC19C9CF3900B6CEF3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3D759EBB19C9CF3900B6CEF3 /* Augemented Reality Production Line.app */,
-				3D759ED719C9CF3900B6CEF3 /* Augemented Reality Production LineTests.xctest */,
+				3D759EBB19C9CF3900B6CEF3 /* Augmented Reality Production Line.app */,
+				3D759ED719C9CF3900B6CEF3 /* Augmented Reality Production LineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D759EBD19C9CF3900B6CEF3 /* Augemented Reality Production Line */ = {
+		3D759EBD19C9CF3900B6CEF3 /* Augmented Reality Production Line */ = {
 			isa = PBXGroup;
 			children = (
 				3DDDF36A19D312D100BAEF73 /* Images */,
@@ -170,9 +178,10 @@
 				3D759EC319C9CF3900B6CEF3 /* AppDelegate.m */,
 				3D759ECE19C9CF3900B6CEF3 /* Main.storyboard */,
 				3D759ED119C9CF3900B6CEF3 /* Images.xcassets */,
-				3D759EC519C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld */,
+				3D759EC519C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodeld */,
 				3D759EBE19C9CF3900B6CEF3 /* Supporting Files */,
 			);
+			name = "Augmented Reality Production Line";
 			path = "Augemented Reality Production Line";
 			sourceTree = "<group>";
 		};
@@ -185,12 +194,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3D759EDA19C9CF3900B6CEF3 /* Augemented Reality Production LineTests */ = {
+		3D759EDA19C9CF3900B6CEF3 /* Augmented Reality Production LineTests */ = {
 			isa = PBXGroup;
 			children = (
 				3D759EDD19C9CF3900B6CEF3 /* Augemented_Reality_Production_LineTests.m */,
 				3D759EDB19C9CF3900B6CEF3 /* Supporting Files */,
 			);
+			name = "Augmented Reality Production LineTests";
 			path = "Augemented Reality Production LineTests";
 			sourceTree = "<group>";
 		};
@@ -373,9 +383,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3D759EBA19C9CF3900B6CEF3 /* Augemented Reality Production Line */ = {
+		3D759EBA19C9CF3900B6CEF3 /* Augmented Reality Production Line */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D759EE119C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augemented Reality Production Line" */;
+			buildConfigurationList = 3D759EE119C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augmented Reality Production Line" */;
 			buildPhases = (
 				3D759EB719C9CF3900B6CEF3 /* Sources */,
 				3D759EB819C9CF3900B6CEF3 /* Frameworks */,
@@ -385,14 +395,14 @@
 			);
 			dependencies = (
 			);
-			name = "Augemented Reality Production Line";
+			name = "Augmented Reality Production Line";
 			productName = "Augemented Reality Production Line";
-			productReference = 3D759EBB19C9CF3900B6CEF3 /* Augemented Reality Production Line.app */;
+			productReference = 3D759EBB19C9CF3900B6CEF3 /* Augmented Reality Production Line.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3D759ED619C9CF3900B6CEF3 /* Augemented Reality Production LineTests */ = {
+		3D759ED619C9CF3900B6CEF3 /* Augmented Reality Production LineTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D759EE419C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augemented Reality Production LineTests" */;
+			buildConfigurationList = 3D759EE419C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augmented Reality Production LineTests" */;
 			buildPhases = (
 				3D759ED319C9CF3900B6CEF3 /* Sources */,
 				3D759ED419C9CF3900B6CEF3 /* Frameworks */,
@@ -403,9 +413,9 @@
 			dependencies = (
 				3D759ED919C9CF3900B6CEF3 /* PBXTargetDependency */,
 			);
-			name = "Augemented Reality Production LineTests";
+			name = "Augmented Reality Production LineTests";
 			productName = "Augemented Reality Production LineTests";
-			productReference = 3D759ED719C9CF3900B6CEF3 /* Augemented Reality Production LineTests.xctest */;
+			productReference = 3D759ED719C9CF3900B6CEF3 /* Augmented Reality Production LineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -419,6 +429,14 @@
 				TargetAttributes = {
 					3D759EBA19C9CF3900B6CEF3 = {
 						CreatedOnToolsVersion = 6.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3D759ED619C9CF3900B6CEF3 = {
 						CreatedOnToolsVersion = 6.0;
@@ -426,7 +444,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3D759EB619C9CF3800B6CEF3 /* Build configuration list for PBXProject "Augemented Reality Production Line" */;
+			buildConfigurationList = 3D759EB619C9CF3800B6CEF3 /* Build configuration list for PBXProject "Augmented Reality Production Line" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -439,8 +457,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3D759EBA19C9CF3900B6CEF3 /* Augemented Reality Production Line */,
-				3D759ED619C9CF3900B6CEF3 /* Augemented Reality Production LineTests */,
+				3D759EBA19C9CF3900B6CEF3 /* Augmented Reality Production Line */,
+				3D759ED619C9CF3900B6CEF3 /* Augmented Reality Production LineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -483,7 +501,7 @@
 				3DC425D819CB34B800DA39E9 /* AugmentedRealityWSLocalSource.m in Sources */,
 				3D759EFF19C9D57800B6CEF3 /* BeaconMonitor.m in Sources */,
 				3D759EF119C9D23800B6CEF3 /* NSNull+Utilities.m in Sources */,
-				3D759EC719C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld in Sources */,
+				3D759EC719C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodeld in Sources */,
 				3D759F0219C9D78C00B6CEF3 /* BeaconProtocols.m in Sources */,
 				3D759EC419C9CF3900B6CEF3 /* AppDelegate.m in Sources */,
 				3DC425E419CB472B00DA39E9 /* JSONModelsBase.m in Sources */,
@@ -512,7 +530,7 @@
 /* Begin PBXTargetDependency section */
 		3D759ED919C9CF3900B6CEF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D759EBA19C9CF3900B6CEF3 /* Augemented Reality Production Line */;
+			target = 3D759EBA19C9CF3900B6CEF3 /* Augmented Reality Production Line */;
 			targetProxy = 3D759ED819C9CF3900B6CEF3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -614,7 +632,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Augemented Reality Production Line/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Augmented Reality Production Line";
 			};
 			name = Debug;
 		};
@@ -625,7 +643,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Augemented Reality Production Line/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Augmented Reality Production Line";
 			};
 			name = Release;
 		};
@@ -643,7 +661,7 @@
 				);
 				INFOPLIST_FILE = "Augemented Reality Production LineTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Augmented Reality Production LineTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -658,7 +676,7 @@
 				);
 				INFOPLIST_FILE = "Augemented Reality Production LineTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Augmented Reality Production LineTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -666,7 +684,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D759EB619C9CF3800B6CEF3 /* Build configuration list for PBXProject "Augemented Reality Production Line" */ = {
+		3D759EB619C9CF3800B6CEF3 /* Build configuration list for PBXProject "Augmented Reality Production Line" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D759EDF19C9CF3900B6CEF3 /* Debug */,
@@ -675,7 +693,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D759EE119C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augemented Reality Production Line" */ = {
+		3D759EE119C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augmented Reality Production Line" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D759EE219C9CF3900B6CEF3 /* Debug */,
@@ -684,7 +702,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D759EE419C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augemented Reality Production LineTests" */ = {
+		3D759EE419C9CF3900B6CEF3 /* Build configuration list for PBXNativeTarget "Augmented Reality Production LineTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D759EE519C9CF3900B6CEF3 /* Debug */,
@@ -696,13 +714,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3D759EC519C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodeld */ = {
+		3D759EC519C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3D759EC619C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodel */,
+				3D759EC619C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodel */,
 			);
-			currentVersion = 3D759EC619C9CF3900B6CEF3 /* Augemented_Reality_Production_Line.xcdatamodel */;
-			path = Augemented_Reality_Production_Line.xcdatamodeld;
+			currentVersion = 3D759EC619C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodel */;
+			path = Augemnted_Reality_Production_Line.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

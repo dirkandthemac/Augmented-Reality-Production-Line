@@ -11,7 +11,7 @@
 
 @implementation BeaconMonitor
 
-@synthesize beaconsFoundDelegate;
+@synthesize beaconMonitorFoundDelegate;
 @synthesize beaconDefintion;
 @synthesize BeaconKey;
 @synthesize locationManager;
@@ -94,8 +94,10 @@
  beacons has changed.....*/
 
 -(void)beaconsHaveChanged{
-    if(self.beaconsFoundDelegate && [self.beaconsFoundDelegate respondsToSelector:@selector(onBeaconsChanged:)]){
-        [self.beaconsFoundDelegate onBeaconsChanged:availableBeacons BeaconKey:BeaconKey];
+    if(self.beaconMonitorFoundDelegate){
+        if([self.beaconMonitorFoundDelegate respondsToSelector:@selector(onBeaconsChanged:BeaconKey:)]){
+            [self.beaconMonitorFoundDelegate onBeaconsChanged:availableBeacons BeaconKey:BeaconKey];
+        }
     }
 }
 
@@ -107,7 +109,7 @@
     
     /* Iterate over all of the beacons within Range...... */
     
-    for (BeaconDefinition *def in availableBeacons) {
+    for (BeaconDefinition *def in [availableBeacons objectEnumerator]) {
 
         /* Get the Key we are using frst off.... */
         
@@ -150,7 +152,7 @@
     
     /* Iterate over the newly found items and add them immediately */
     
-    for (CLBeacon *beacon in foundBeacons) {
+    for (CLBeacon *beacon in [foundBeacons objectEnumerator]) {
 
         /* Get the Key we are using frst off.... */
         
@@ -163,6 +165,7 @@
         /* And if we dound no matching definition then create one and add it to the collection */
         
         if(!def){
+            
             BeaconDefinition *newDef = [[BeaconDefinition alloc]initWithClBeacon:beacon];
             [availableBeacons setObject:newDef forKey:key];
             if(hasChanged==NO){
@@ -192,6 +195,7 @@
         
         if ([beaconDefintion isProximateTo:beacon.proximity]) {
             [beaconsInRange setObject:beacon forKey:[BeaconDefinition beaconKeyFromCLBeacon:beacon]];
+            NSLog(@"Beacon UID = %@ is %d",[BeaconDefinition beaconKeyFromCLBeacon:beacon],beacon.proximity);
         }
     }
     

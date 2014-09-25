@@ -30,9 +30,11 @@
     
     self=[self init];
     if(self){
-        self.Uuid=beacon.proximityUUID;
-        self.MajorId=beacon.major;
-        self.MinorId=beacon.minor;
+        Uuid=beacon.proximityUUID;
+        MajorId=beacon.major;
+        MinorId=beacon.minor;
+//        MajorId=[NSNumber numberWithInt:[beacon.major intValue]];// beacon.major;
+  //      MinorId=[NSNumber numberWithInt:[beacon.minor intValue]];// beacon.major;
     }
     return self;
 }
@@ -62,11 +64,13 @@
     }
 }
 
-+(NSString *)beaconKeyFromCLBeacon:(CLBeacon *)beacon{
-    return [NSString stringWithFormat:@"%@-%@-%@",beacon.proximityUUID,beacon.major,beacon.minor];
++(NSString*)beaconKeyFromCLBeacon:(CLBeacon *)beacon{
+    NSString *retValue = [NSString  stringWithFormat:@"%@-%d-%d",beacon.proximityUUID,[beacon.major intValue],[beacon.minor intValue]];
+    return retValue;
 }
 
-+(NSString *)beaconKeyFromBeacon:(BeaconDefinition *)beacon{
-    return [NSString stringWithFormat:@"%@-%ld-%ld",beacon.Uuid,(long)beacon.MajorId,(long)beacon.MinorId];
++(NSString*)beaconKeyFromBeacon:(BeaconDefinition *)beacon{
+    NSString *retVal=[NSString stringWithFormat:@"%@-%d-%d",beacon.Uuid.UUIDString,[beacon.MajorId intValue],[beacon.MinorId intValue]];
+    return  retVal;
 }
 @end

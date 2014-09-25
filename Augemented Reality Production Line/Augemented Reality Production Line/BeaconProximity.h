@@ -16,9 +16,9 @@
  *
  */
 
-typedef enum BeaconProximity:NSInteger{
-    BPUnknown=1>>0,
-    BPImmediate=1>>1,
-    BPNear=1>>2,
-    BPFar=1>>3
+typedef enum BeaconProximity:NSUInteger{
+    BPUnknown=1<<0,
+    BPImmediate=1<<1,
+    BPNear=1<<2,
+    BPFar=1<<3
 } BeaconProximity;

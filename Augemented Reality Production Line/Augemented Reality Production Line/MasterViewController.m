@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "ProductionLine.h"
 
+
 @interface MasterViewController ()
 
 @end
@@ -17,6 +18,8 @@
 @implementation MasterViewController
 
 @synthesize AllProductionLines;
+@synthesize ProductionLinesBeaconMonitor;
+@synthesize LastMovedInto;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -27,7 +30,6 @@
 }
 
 -(NSDictionary *)onRequestControllers{
-
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     
     for (ProductionLine *p in [AllProductionLines objectEnumerator]) {
@@ -35,6 +37,32 @@
     }
     
     return dict;
+}
+
+-(void)onBeaconsChanged:(NSMutableDictionary *)beacons{
+    BOOL changed=NO;
+    for (id key in [AllProductionLines allKeys]) {
+        NSLog(@"Keys = %@",key);
+    }
+    if (beacons.count==1) {
+        BeaconDefinition *def = [[beacons objectEnumerator]nextObject];
+        NSString *key=[BeaconDefinition beaconKeyFromBeacon:def];
+        NSLog(@"Beacon Key = %@",key);
+        ProductionLine *pl= [AllProductionLines objectForKey:key];
+        if(pl){
+            if(!LastMovedInto){
+                LastMovedInto=pl;
+                changed=YES;
+            }else if(LastMovedInto.UniqueBeaconID!=pl.UniqueBeaconID){
+                LastMovedInto=pl;
+                changed=YES;
+            }
+        }
+    }
+    
+    if(changed==YES){
+        [self.detailViewContainerController showViewUid:[self LastMovedInto].UniqueBeaconID];
+    }
 }
 
 - (void) LoadProductionLines{
@@ -49,6 +77,38 @@
 
 - (void)onProductionLineLoaded:(NSDictionary *)ProductionLines{
     self.AllProductionLines=ProductionLines;
+    NSMutableDictionary *beaconIds =[[NSMutableDictionary alloc]init];
+    NSMutableArray *beaconDefs = [[NSMutableArray alloc]init];
+    
+    for (ProductionLine *p in [AllProductionLines objectEnumerator]) {
+        
+        /* Now create a Beacon Definition from this info.... */
+        
+        BeaconDefinition *def = [[BeaconDefinition alloc]initWithData:p.BeaconUid major:p.MajorId minor:p.MinorId region:p.LineName Proximity:BPImmediate|BPNear];
+        
+        /* Add it to an array */
+        
+        if(![beaconIds objectForKey:def.Uuid]){
+            [beaconIds setObject:def forKey:def.Uuid];
+            [beaconDefs addObject:def];
+        }
+    }
+    
+    /* OK. Recreate the Monitor Beacon terminating if we are already monitoring.... */
+    
+    if(ProductionLinesBeaconMonitor!=nil){
+        [ProductionLinesBeaconMonitor terminateMonitoring];
+    }
+    
+    ProductionLinesBeaconMonitor=[IBeacon alloc];
+    ProductionLinesBeaconMonitor.beaconsFoundDelegate=self;
+    ProductionLinesBeaconMonitor = [ProductionLinesBeaconMonitor initWithBeacons:beaconDefs];
+    
+    /* And Start Monitoring */
+
+    
+    [ProductionLinesBeaconMonitor startMonitoring];
+    
 }
 
 -(void)onProductionLineLoadingError:(NSError *)ConnectionError{

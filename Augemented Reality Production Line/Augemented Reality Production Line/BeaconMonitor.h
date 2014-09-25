@@ -20,7 +20,7 @@
 /* The property to which the delegate for the beacons protocol is assigned
  */
 
-@property(nonatomic,weak)id<BeaconMonitorFoundDelegate> beaconsFoundDelegate;
+@property(nonatomic,weak)id<BeaconMonitorFoundDelegate> beaconMonitorFoundDelegate;
 
 /* The Location Manager for the Beacons Interface */
 

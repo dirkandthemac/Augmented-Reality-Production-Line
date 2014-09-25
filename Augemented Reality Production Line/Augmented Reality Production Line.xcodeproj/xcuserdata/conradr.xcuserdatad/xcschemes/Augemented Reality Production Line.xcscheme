@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D759EBA19C9CF3900B6CEF3"
-               BuildableName = "Augemented Reality Production Line.app"
-               BlueprintName = "Augemented Reality Production Line"
-               ReferencedContainer = "container:Augemented Reality Production Line.xcodeproj">
+               BuildableName = "Augmented Reality Production Line.app"
+               BlueprintName = "Augmented Reality Production Line"
+               ReferencedContainer = "container:Augmented Reality Production Line.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D759ED619C9CF3900B6CEF3"
-               BuildableName = "Augemented Reality Production LineTests.xctest"
-               BlueprintName = "Augemented Reality Production LineTests"
-               ReferencedContainer = "container:Augemented Reality Production Line.xcodeproj">
+               BuildableName = "Augmented Reality Production LineTests.xctest"
+               BlueprintName = "Augmented Reality Production LineTests"
+               ReferencedContainer = "container:Augmented Reality Production Line.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D759EBA19C9CF3900B6CEF3"
-            BuildableName = "Augemented Reality Production Line.app"
-            BlueprintName = "Augemented Reality Production Line"
-            ReferencedContainer = "container:Augemented Reality Production Line.xcodeproj">
+            BuildableName = "Augmented Reality Production Line.app"
+            BlueprintName = "Augmented Reality Production Line"
+            ReferencedContainer = "container:Augmented Reality Production Line.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D759EBA19C9CF3900B6CEF3"
-            BuildableName = "Augemented Reality Production Line.app"
-            BlueprintName = "Augemented Reality Production Line"
-            ReferencedContainer = "container:Augemented Reality Production Line.xcodeproj">
+            BuildableName = "Augmented Reality Production Line.app"
+            BlueprintName = "Augmented Reality Production Line"
+            ReferencedContainer = "container:Augmented Reality Production Line.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D759EBA19C9CF3900B6CEF3"
-            BuildableName = "Augemented Reality Production Line.app"
-            BlueprintName = "Augemented Reality Production Line"
-            ReferencedContainer = "container:Augemented Reality Production Line.xcodeproj">
+            BuildableName = "Augmented Reality Production Line.app"
+            BlueprintName = "Augmented Reality Production Line"
+            ReferencedContainer = "container:Augmented Reality Production Line.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
