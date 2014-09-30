@@ -97,6 +97,7 @@
     if(self.beaconMonitorFoundDelegate){
         if([self.beaconMonitorFoundDelegate respondsToSelector:@selector(onBeaconsChanged:BeaconKey:)]){
             [self.beaconMonitorFoundDelegate onBeaconsChanged:availableBeacons BeaconKey:BeaconKey];
+            NSLog(@"Beacons Have Changed");
         }
     }
 }
@@ -129,7 +130,7 @@
     
         if(!beacon){
             def.scansSinceFound++;
-            if(def.scansSinceFound>2){
+            if(def.scansSinceFound>1){
                 [beaconsToDelete addObject:key];
             }
             
@@ -157,7 +158,7 @@
         /* Get the Key we are using frst off.... */
         
         NSString *key = [BeaconDefinition beaconKeyFromCLBeacon:beacon];
-
+        
         /* If the beacon already has a definition then get its definition */
         
         BeaconDefinition *def= [availableBeacons objectForKey:key];
@@ -183,7 +184,7 @@
 
 - (void) locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    
+
     /* Create a temporary dictionary for the found beacons within range ... */
     
     NSMutableDictionary *beaconsInRange = [[NSMutableDictionary alloc]init];
@@ -195,10 +196,12 @@
         
         if ([beaconDefintion isProximateTo:beacon.proximity]) {
             [beaconsInRange setObject:beacon forKey:[BeaconDefinition beaconKeyFromCLBeacon:beacon]];
-            NSLog(@"Beacon UID = %@ is %d",[BeaconDefinition beaconKeyFromCLBeacon:beacon],beacon.proximity);
         }
     }
     
+    
+    NSLog(@"%lu",(unsigned long)beaconsInRange.count);
+
     /* And add the beacons.... If the beacons in the collections change then we let the delegate know that  it needs to refresh its data */
     
     if([self addBeacons:beaconsInRange]){

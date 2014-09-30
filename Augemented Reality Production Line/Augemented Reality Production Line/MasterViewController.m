@@ -41,13 +41,9 @@
 
 -(void)onBeaconsChanged:(NSMutableDictionary *)beacons{
     BOOL changed=NO;
-    for (id key in [AllProductionLines allKeys]) {
-        NSLog(@"Keys = %@",key);
-    }
     if (beacons.count==1) {
         BeaconDefinition *def = [[beacons objectEnumerator]nextObject];
         NSString *key=[BeaconDefinition beaconKeyFromBeacon:def];
-        NSLog(@"Beacon Key = %@",key);
         ProductionLine *pl= [AllProductionLines objectForKey:key];
         if(pl){
             if(!LastMovedInto){
@@ -58,6 +54,8 @@
                 changed=YES;
             }
         }
+    }else if (beacons.count==0){
+        LastMovedInto=nil;
     }
     
     if(changed==YES){

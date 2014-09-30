@@ -160,8 +160,9 @@
         for (BeaconMonitor *mon in [monitors objectEnumerator]) {
             [dict addEntriesFromDictionary:mon.availableBeacons];
         }
+        
         [self.beaconsFoundDelegate onBeaconsChanged:dict];
-
+        
         /* Reset the Results collection as .... we will start the process over again */
         
         Results=nil;

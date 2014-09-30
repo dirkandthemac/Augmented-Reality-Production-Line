@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0AA16519D9B726004DB6FA /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA16419D9B726004DB6FA /* ShinobiCharts.framework */; };
+		3D0AA16719DA9FC3004DB6FA /* cable-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA16619DA9FC2004DB6FA /* cable-128.png */; };
+		3D0AA16919DAA015004DB6FA /* spring-42.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA16819DAA015004DB6FA /* spring-42.png */; };
+		3D0AA16B19DAA096004DB6FA /* ItemTool_Wire.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA16A19DAA096004DB6FA /* ItemTool_Wire.png */; };
+		3D0AA16D19DAA1C7004DB6FA /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA16C19DAA1C7004DB6FA /* calendar.png */; };
+		3D0AA16F19DAA3A7004DB6FA /* preorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA16E19DAA3A7004DB6FA /* preorder.png */; };
+		3D0AA17119DAA591004DB6FA /* new-ideas-invention-advice.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA17019DAA591004DB6FA /* new-ideas-invention-advice.gif */; };
+		3D0AA17319DAA650004DB6FA /* icon-rb-erp-overview.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA17219DAA650004DB6FA /* icon-rb-erp-overview.png */; };
+		3D0AA17519DAA714004DB6FA /* icon_warehouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA17419DAA714004DB6FA /* icon_warehouse.png */; };
+		3D0AA17719DAB05B004DB6FA /* spring.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA17619DAB05B004DB6FA /* spring.png */; };
+		3D0AA17B19DAC03D004DB6FA /* GraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA17A19DAC03D004DB6FA /* GraphController.m */; };
+		3D0AA17D19DAC842004DB6FA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA17C19DAC842004DB6FA /* Security.framework */; };
+		3D0AA17F19DAC852004DB6FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA17E19DAC852004DB6FA /* QuartzCore.framework */; };
+		3D0AA18119DAC859004DB6FA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA18019DAC859004DB6FA /* OpenGLES.framework */; };
+		3D0AA18319DAC868004DB6FA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA18219DAC868004DB6FA /* CoreText.framework */; };
+		3D0AA18519DAC87D004DB6FA /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA18419DAC87D004DB6FA /* libc++.dylib */; };
+		3D0AA18919DB0430004DB6FA /* LoadingBayGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA18819DB0430004DB6FA /* LoadingBayGraphController.m */; };
+		3D0AA18D19DB08FD004DB6FA /* StockGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA18C19DB08FD004DB6FA /* StockGraphController.m */; };
 		3D1A2F3519D1AF19000B81BD /* productionlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D1A2F3419D1AF19000B81BD /* productionlines.json */; };
 		3D4FAEB619D438EC009C8297 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4FAEB519D438EC009C8297 /* CoreLocation.framework */; };
 		3D4FAEB819D43AB3009C8297 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4FAEB719D43AB3009C8297 /* MapKit.framework */; };
@@ -52,6 +70,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0AA16419D9B726004DB6FA /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiCharts.framework; path = ../../../../Library/ShinobiCharts/ShinobiCharts.framework; sourceTree = "<group>"; };
+		3D0AA16619DA9FC2004DB6FA /* cable-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cable-128.png"; sourceTree = "<group>"; };
+		3D0AA16819DAA015004DB6FA /* spring-42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spring-42.png"; sourceTree = "<group>"; };
+		3D0AA16A19DAA096004DB6FA /* ItemTool_Wire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ItemTool_Wire.png; sourceTree = "<group>"; };
+		3D0AA16C19DAA1C7004DB6FA /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		3D0AA16E19DAA3A7004DB6FA /* preorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preorder.png; sourceTree = "<group>"; };
+		3D0AA17019DAA591004DB6FA /* new-ideas-invention-advice.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "new-ideas-invention-advice.gif"; sourceTree = "<group>"; };
+		3D0AA17219DAA650004DB6FA /* icon-rb-erp-overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rb-erp-overview.png"; sourceTree = "<group>"; };
+		3D0AA17419DAA714004DB6FA /* icon_warehouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_warehouse.png; sourceTree = "<group>"; };
+		3D0AA17619DAB05B004DB6FA /* spring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring.png; sourceTree = "<group>"; };
+		3D0AA17919DAC03D004DB6FA /* GraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphController.h; sourceTree = "<group>"; };
+		3D0AA17A19DAC03D004DB6FA /* GraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphController.m; sourceTree = "<group>"; };
+		3D0AA17C19DAC842004DB6FA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3D0AA17E19DAC852004DB6FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3D0AA18019DAC859004DB6FA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3D0AA18219DAC868004DB6FA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		3D0AA18419DAC87D004DB6FA /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		3D0AA18719DB0430004DB6FA /* LoadingBayGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingBayGraphController.h; sourceTree = "<group>"; };
+		3D0AA18819DB0430004DB6FA /* LoadingBayGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingBayGraphController.m; sourceTree = "<group>"; };
+		3D0AA18B19DB08FD004DB6FA /* StockGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockGraphController.h; sourceTree = "<group>"; };
+		3D0AA18C19DB08FD004DB6FA /* StockGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockGraphController.m; sourceTree = "<group>"; };
 		3D1A2F3419D1AF19000B81BD /* productionlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productionlines.json; sourceTree = "<group>"; };
 		3D4FAEB519D438EC009C8297 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D4FAEB719D43AB3009C8297 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -112,6 +151,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0AA18519DAC87D004DB6FA /* libc++.dylib in Frameworks */,
+				3D0AA18319DAC868004DB6FA /* CoreText.framework in Frameworks */,
+				3D0AA18119DAC859004DB6FA /* OpenGLES.framework in Frameworks */,
+				3D0AA17F19DAC852004DB6FA /* QuartzCore.framework in Frameworks */,
+				3D0AA17D19DAC842004DB6FA /* Security.framework in Frameworks */,
+				3D0AA16519D9B726004DB6FA /* ShinobiCharts.framework in Frameworks */,
 				3D4FAEB819D43AB3009C8297 /* MapKit.framework in Frameworks */,
 				3D4FAEB619D438EC009C8297 /* CoreLocation.framework in Frameworks */,
 			);
@@ -127,6 +172,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D0AA17819DAC003004DB6FA /* GraphController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA18A19DB08DB004DB6FA /* StockGraphController */,
+				3D0AA18619DB03FE004DB6FA /* LoadingBayGraphController */,
+				3D0AA17919DAC03D004DB6FA /* GraphController.h */,
+				3D0AA17A19DAC03D004DB6FA /* GraphController.m */,
+			);
+			name = GraphController;
+			sourceTree = "<group>";
+		};
+		3D0AA18619DB03FE004DB6FA /* LoadingBayGraphController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA18719DB0430004DB6FA /* LoadingBayGraphController.h */,
+				3D0AA18819DB0430004DB6FA /* LoadingBayGraphController.m */,
+			);
+			name = LoadingBayGraphController;
+			sourceTree = "<group>";
+		};
+		3D0AA18A19DB08DB004DB6FA /* StockGraphController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA18B19DB08FD004DB6FA /* StockGraphController.h */,
+				3D0AA18C19DB08FD004DB6FA /* StockGraphController.m */,
+			);
+			name = StockGraphController;
+			sourceTree = "<group>";
+		};
 		3D1A2F2E19D193FE000B81BD /* ProductionLine */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +221,12 @@
 		3D759EB219C9CF3800B6CEF3 = {
 			isa = PBXGroup;
 			children = (
+				3D0AA18419DAC87D004DB6FA /* libc++.dylib */,
+				3D0AA18219DAC868004DB6FA /* CoreText.framework */,
+				3D0AA18019DAC859004DB6FA /* OpenGLES.framework */,
+				3D0AA17E19DAC852004DB6FA /* QuartzCore.framework */,
+				3D0AA17C19DAC842004DB6FA /* Security.framework */,
+				3D0AA16419D9B726004DB6FA /* ShinobiCharts.framework */,
 				3D4FAEB719D43AB3009C8297 /* MapKit.framework */,
 				3D4FAEB519D438EC009C8297 /* CoreLocation.framework */,
 				3D759EBD19C9CF3900B6CEF3 /* Augmented Reality Production Line */,
@@ -258,6 +338,7 @@
 		3D759EEC19C9D16800B6CEF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3D0AA17819DAC003004DB6FA /* GraphController */,
 				3DDDF36619D2C72900BAEF73 /* DetailViewContainer */,
 				3D759EF519C9D2E300B6CEF3 /* Master */,
 				3D759EF619C9D2EC00B6CEF3 /* Detail */,
@@ -368,6 +449,15 @@
 		3DDDF36A19D312D100BAEF73 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D0AA17619DAB05B004DB6FA /* spring.png */,
+				3D0AA17419DAA714004DB6FA /* icon_warehouse.png */,
+				3D0AA17219DAA650004DB6FA /* icon-rb-erp-overview.png */,
+				3D0AA17019DAA591004DB6FA /* new-ideas-invention-advice.gif */,
+				3D0AA16E19DAA3A7004DB6FA /* preorder.png */,
+				3D0AA16C19DAA1C7004DB6FA /* calendar.png */,
+				3D0AA16A19DAA096004DB6FA /* ItemTool_Wire.png */,
+				3D0AA16819DAA015004DB6FA /* spring-42.png */,
+				3D0AA16619DA9FC2004DB6FA /* cable-128.png */,
 				3DDDF37719D3281400BAEF73 /* animal_muppet_picture_jpg..jpg */,
 				3DDDF37819D3281400BAEF73 /* cookiemonster.jpg */,
 				3DDDF37119D31CEF00BAEF73 /* green_light.png */,
@@ -429,6 +519,7 @@
 				TargetAttributes = {
 					3D759EBA19C9CF3900B6CEF3 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 8SAUJKD27Q;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -469,12 +560,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDDF36F19D3155800BAEF73 /* pipeline.jpg in Resources */,
+				3D0AA17519DAA714004DB6FA /* icon_warehouse.png in Resources */,
+				3D0AA17119DAA591004DB6FA /* new-ideas-invention-advice.gif in Resources */,
 				3DDDF36C19D312F400BAEF73 /* spring.jpg in Resources */,
+				3D0AA17719DAB05B004DB6FA /* spring.png in Resources */,
+				3D0AA16F19DAA3A7004DB6FA /* preorder.png in Resources */,
 				3DDDF37519D31CEF00BAEF73 /* red_light.png in Resources */,
 				3D759ED019C9CF3900B6CEF3 /* Main.storyboard in Resources */,
+				3D0AA16919DAA015004DB6FA /* spring-42.png in Resources */,
+				3D0AA17319DAA650004DB6FA /* icon-rb-erp-overview.png in Resources */,
+				3D0AA16B19DAA096004DB6FA /* ItemTool_Wire.png in Resources */,
 				3DDDF37919D3281400BAEF73 /* animal_muppet_picture_jpg..jpg in Resources */,
+				3D0AA16D19DAA1C7004DB6FA /* calendar.png in Resources */,
 				3DDDF37419D31CEF00BAEF73 /* green_light.png in Resources */,
 				3DDDF37619D31CEF00BAEF73 /* yellow_light.png in Resources */,
+				3D0AA16719DA9FC3004DB6FA /* cable-128.png in Resources */,
 				3D1A2F3519D1AF19000B81BD /* productionlines.json in Resources */,
 				3DDDF37019D3155800BAEF73 /* wire.jpg in Resources */,
 				3DDDF37A19D3281400BAEF73 /* cookiemonster.jpg in Resources */,
@@ -509,8 +609,11 @@
 				3D759EFC19C9D43E00B6CEF3 /* IBeacon.m in Sources */,
 				3DDDF36919D2C75700BAEF73 /* DetailViewContainerController.m in Sources */,
 				3DC425DE19CB450100DA39E9 /* ProductionLine.m in Sources */,
+				3D0AA18D19DB08FD004DB6FA /* StockGraphController.m in Sources */,
 				3DC425D519CB314D00DA39E9 /* AugmentedRealityWS.m in Sources */,
+				3D0AA18919DB0430004DB6FA /* LoadingBayGraphController.m in Sources */,
 				3D759EC119C9CF3900B6CEF3 /* main.m in Sources */,
+				3D0AA17B19DAC03D004DB6FA /* GraphController.m in Sources */,
 				3D759F0519C9DD8100B6CEF3 /* BeaconDefinition.m in Sources */,
 				3D759EF219C9D23800B6CEF3 /* NSDate+Utilities.m in Sources */,
 				3DC425DB19CB38BC00DA39E9 /* WebServiceBase.m in Sources */,
@@ -630,9 +733,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/ShinobiCharts",
+				);
 				INFOPLIST_FILE = "Augemented Reality Production Line/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Augmented Reality Production Line";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -641,9 +751,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/ShinobiCharts",
+				);
 				INFOPLIST_FILE = "Augemented Reality Production Line/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Augmented Reality Production Line";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

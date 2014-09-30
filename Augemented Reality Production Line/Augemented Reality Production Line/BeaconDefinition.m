@@ -65,7 +65,7 @@
 }
 
 +(NSString*)beaconKeyFromCLBeacon:(CLBeacon *)beacon{
-    NSString *retValue = [NSString  stringWithFormat:@"%@-%d-%d",beacon.proximityUUID,[beacon.major intValue],[beacon.minor intValue]];
+    NSString *retValue = [NSString  stringWithFormat:@"%@-%d-%d",beacon.proximityUUID.UUIDString,[beacon.major intValue],[beacon.minor intValue]];
     return retValue;
 }
 
