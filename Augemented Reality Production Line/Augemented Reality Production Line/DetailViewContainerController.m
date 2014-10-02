@@ -27,6 +27,8 @@
     return self;
 }
 
+/* Method used to Load all of the controllers that this ContainerControl Supports */
+
 -(void) loadControllers{
 
     if(self.loadControllersDelegate && [self.loadControllersDelegate respondsToSelector:@selector(onRequestControllers)]){
@@ -61,6 +63,8 @@
     }
 }
 
+/* Main View Load Method.......*/
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -71,23 +75,24 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(void)showViewUid:(NSString *)beaconUid{
+/* Main method used to invoke the change of controller to the controller
+        specified by the Uid passed across... */
 
-    UIViewController *viewController = [detailControllers objectForKey:beaconUid] ;
+-(void)showViewUid:(NSString *)controllerUid{
+
+    UIViewController *viewController = [detailControllers objectForKey:controllerUid] ;
    
     [self showChildViewController:viewController];
       
 }
 
-
+/* Perform the Physical load and selection of the new controller to show */
 
 -(void)showChildViewController:(UIViewController*)content {
     if(topController != content) {
-        id tmp = self.view;
-        content.view.frame = [self.view frame]; // 2
+        content.view.frame = [self.view frame];
         [self.view addSubview:content.view];
         [content didMoveToParentViewController:self];
         topController = content;

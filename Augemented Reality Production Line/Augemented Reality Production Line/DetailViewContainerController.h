@@ -11,6 +11,9 @@
 
 
 
+/* Load Controllers Delegate. Used to allow the control to request the controllers
+    that it is to support..... */
+
 @protocol LoadControllersDelegate <NSObject>
 @required
 -(NSDictionary*) onRequestControllers;
@@ -20,7 +23,9 @@
     UIViewController* topController;
 }
 
--(void)showViewUid:(NSString*)beaconUid;
+/* Method used to invoke the showing of a screeen by a particular Beacon UID*/
+
+-(void)showViewUid:(NSString*)controllerUid;
 
 /* Dictionary of available controllers */
 

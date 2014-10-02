@@ -25,6 +25,10 @@
 		3D0AA18519DAC87D004DB6FA /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0AA18419DAC87D004DB6FA /* libc++.dylib */; };
 		3D0AA18919DB0430004DB6FA /* LoadingBayGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA18819DB0430004DB6FA /* LoadingBayGraphController.m */; };
 		3D0AA18D19DB08FD004DB6FA /* StockGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA18C19DB08FD004DB6FA /* StockGraphController.m */; };
+		3D0AA19119DBF19A004DB6FA /* RawMaterialsGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA19019DBF19A004DB6FA /* RawMaterialsGraphController.m */; };
+		3D0AA19519DBF1DF004DB6FA /* StockLevelGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA19419DBF1DF004DB6FA /* StockLevelGraphController.m */; };
+		3D0AA19919DBF328004DB6FA /* HistoricalPipelineGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA19819DBF328004DB6FA /* HistoricalPipelineGraphController.m */; };
+		3D0AA19B19DC4523004DB6FA /* delivery.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AA19A19DC4523004DB6FA /* delivery.png */; };
 		3D1A2F3519D1AF19000B81BD /* productionlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D1A2F3419D1AF19000B81BD /* productionlines.json */; };
 		3D4FAEB619D438EC009C8297 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4FAEB519D438EC009C8297 /* CoreLocation.framework */; };
 		3D4FAEB819D43AB3009C8297 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4FAEB719D43AB3009C8297 /* MapKit.framework */; };
@@ -91,6 +95,13 @@
 		3D0AA18819DB0430004DB6FA /* LoadingBayGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingBayGraphController.m; sourceTree = "<group>"; };
 		3D0AA18B19DB08FD004DB6FA /* StockGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockGraphController.h; sourceTree = "<group>"; };
 		3D0AA18C19DB08FD004DB6FA /* StockGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockGraphController.m; sourceTree = "<group>"; };
+		3D0AA18F19DBF19A004DB6FA /* RawMaterialsGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawMaterialsGraphController.h; sourceTree = "<group>"; };
+		3D0AA19019DBF19A004DB6FA /* RawMaterialsGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawMaterialsGraphController.m; sourceTree = "<group>"; };
+		3D0AA19319DBF1DF004DB6FA /* StockLevelGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockLevelGraphController.h; sourceTree = "<group>"; };
+		3D0AA19419DBF1DF004DB6FA /* StockLevelGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockLevelGraphController.m; sourceTree = "<group>"; };
+		3D0AA19719DBF328004DB6FA /* HistoricalPipelineGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalPipelineGraphController.h; sourceTree = "<group>"; };
+		3D0AA19819DBF328004DB6FA /* HistoricalPipelineGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalPipelineGraphController.m; sourceTree = "<group>"; };
+		3D0AA19A19DC4523004DB6FA /* delivery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delivery.png; sourceTree = "<group>"; };
 		3D1A2F3419D1AF19000B81BD /* productionlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productionlines.json; sourceTree = "<group>"; };
 		3D4FAEB519D438EC009C8297 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D4FAEB719D43AB3009C8297 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -175,6 +186,9 @@
 		3D0AA17819DAC003004DB6FA /* GraphController */ = {
 			isa = PBXGroup;
 			children = (
+				3D0AA19619DBF2EB004DB6FA /* HistoricalPipelineGraphController */,
+				3D0AA19219DBF1BD004DB6FA /* StockLevelGraphController */,
+				3D0AA18E19DBF0E3004DB6FA /* RawMaterialGraphController */,
 				3D0AA18A19DB08DB004DB6FA /* StockGraphController */,
 				3D0AA18619DB03FE004DB6FA /* LoadingBayGraphController */,
 				3D0AA17919DAC03D004DB6FA /* GraphController.h */,
@@ -199,6 +213,33 @@
 				3D0AA18C19DB08FD004DB6FA /* StockGraphController.m */,
 			);
 			name = StockGraphController;
+			sourceTree = "<group>";
+		};
+		3D0AA18E19DBF0E3004DB6FA /* RawMaterialGraphController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA18F19DBF19A004DB6FA /* RawMaterialsGraphController.h */,
+				3D0AA19019DBF19A004DB6FA /* RawMaterialsGraphController.m */,
+			);
+			name = RawMaterialGraphController;
+			sourceTree = "<group>";
+		};
+		3D0AA19219DBF1BD004DB6FA /* StockLevelGraphController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA19319DBF1DF004DB6FA /* StockLevelGraphController.h */,
+				3D0AA19419DBF1DF004DB6FA /* StockLevelGraphController.m */,
+			);
+			name = StockLevelGraphController;
+			sourceTree = "<group>";
+		};
+		3D0AA19619DBF2EB004DB6FA /* HistoricalPipelineGraphController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA19719DBF328004DB6FA /* HistoricalPipelineGraphController.h */,
+				3D0AA19819DBF328004DB6FA /* HistoricalPipelineGraphController.m */,
+			);
+			name = HistoricalPipelineGraphController;
 			sourceTree = "<group>";
 		};
 		3D1A2F2E19D193FE000B81BD /* ProductionLine */ = {
@@ -449,6 +490,7 @@
 		3DDDF36A19D312D100BAEF73 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D0AA19A19DC4523004DB6FA /* delivery.png */,
 				3D0AA17619DAB05B004DB6FA /* spring.png */,
 				3D0AA17419DAA714004DB6FA /* icon_warehouse.png */,
 				3D0AA17219DAA650004DB6FA /* icon-rb-erp-overview.png */,
@@ -574,6 +616,7 @@
 				3D0AA16D19DAA1C7004DB6FA /* calendar.png in Resources */,
 				3DDDF37419D31CEF00BAEF73 /* green_light.png in Resources */,
 				3DDDF37619D31CEF00BAEF73 /* yellow_light.png in Resources */,
+				3D0AA19B19DC4523004DB6FA /* delivery.png in Resources */,
 				3D0AA16719DA9FC3004DB6FA /* cable-128.png in Resources */,
 				3D1A2F3519D1AF19000B81BD /* productionlines.json in Resources */,
 				3DDDF37019D3155800BAEF73 /* wire.jpg in Resources */,
@@ -596,12 +639,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0AA19519DBF1DF004DB6FA /* StockLevelGraphController.m in Sources */,
 				3D759ECD19C9CF3900B6CEF3 /* DetailViewController.m in Sources */,
 				3D759ECA19C9CF3900B6CEF3 /* MasterViewController.m in Sources */,
 				3DC425D819CB34B800DA39E9 /* AugmentedRealityWSLocalSource.m in Sources */,
+				3D0AA19919DBF328004DB6FA /* HistoricalPipelineGraphController.m in Sources */,
 				3D759EFF19C9D57800B6CEF3 /* BeaconMonitor.m in Sources */,
 				3D759EF119C9D23800B6CEF3 /* NSNull+Utilities.m in Sources */,
 				3D759EC719C9CF3900B6CEF3 /* Augemnted_Reality_Production_Line.xcdatamodeld in Sources */,
+				3D0AA19119DBF19A004DB6FA /* RawMaterialsGraphController.m in Sources */,
 				3D759F0219C9D78C00B6CEF3 /* BeaconProtocols.m in Sources */,
 				3D759EC419C9CF3900B6CEF3 /* AppDelegate.m in Sources */,
 				3DC425E419CB472B00DA39E9 /* JSONModelsBase.m in Sources */,

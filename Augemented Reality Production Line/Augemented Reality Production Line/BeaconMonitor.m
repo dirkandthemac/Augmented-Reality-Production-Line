@@ -97,7 +97,6 @@
     if(self.beaconMonitorFoundDelegate){
         if([self.beaconMonitorFoundDelegate respondsToSelector:@selector(onBeaconsChanged:BeaconKey:)]){
             [self.beaconMonitorFoundDelegate onBeaconsChanged:availableBeacons BeaconKey:BeaconKey];
-            NSLog(@"Beacons Have Changed");
         }
     }
 }
@@ -198,9 +197,6 @@
             [beaconsInRange setObject:beacon forKey:[BeaconDefinition beaconKeyFromCLBeacon:beacon]];
         }
     }
-    
-    
-    NSLog(@"%lu",(unsigned long)beaconsInRange.count);
 
     /* And add the beacons.... If the beacons in the collections change then we let the delegate know that  it needs to refresh its data */
     

@@ -11,7 +11,7 @@
 @implementation StockGraphController
 
 -(CGRect)getViewRectangle{
-    return CGRectMake(0, 0, self.view.bounds.size.width, 125);
+    return CGRectMake(0, 0, self.view.bounds.size.width, 170);
 }
 
 -(NSString *)ChartTitle{

@@ -42,6 +42,11 @@
     SChartNumberAxis *yAxis = [[SChartNumberAxis alloc] init];
     chart.yAxis = yAxis;
     chart.datasource=self;
+    
+    xAxis.enableGesturePanning=YES;
+    xAxis.enableGestureZooming=YES;
+    yAxis.enableGesturePanning=YES;
+    yAxis.enableGestureZooming=YES;
     // Add the chart to the view controller
     [self.view addSubview:chart];
     

@@ -29,6 +29,10 @@
     }
 }
 
+/* Method used to provide a list of the controllers when requested to do so....
+    This controllers list is required by the detailContainerController which keeps a key list
+        so that it knows which controller to load when a given key is selected.....*/
+
 -(NSDictionary *)onRequestControllers{
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     
@@ -39,11 +43,21 @@
     return dict;
 }
 
+/* Delegate invoked from the IBeacons classes whenever the list of beacons in range changes....  */
+
 -(void)onBeaconsChanged:(NSMutableDictionary *)beacons{
+
     BOOL changed=NO;
+    
+    NSString *key=nil;
+    
+    /* If there was only one beacon in range then get the production line associated 
+            with this range and store a reference as this being the last selected... Otherwise
+                clear the last selected reference out..... */
+    
     if (beacons.count==1) {
         BeaconDefinition *def = [[beacons objectEnumerator]nextObject];
-        NSString *key=[BeaconDefinition beaconKeyFromBeacon:def];
+        key=[BeaconDefinition beaconKeyFromBeacon:def];
         ProductionLine *pl= [AllProductionLines objectForKey:key];
         if(pl){
             if(!LastMovedInto){
@@ -57,15 +71,42 @@
     }else if (beacons.count==0){
         LastMovedInto=nil;
     }
+
+    /* And if the production line we are at was not the last one then invoke a show of the details
+        and visually select the production line in the list */
     
     if(changed==YES){
         [self.detailViewContainerController showViewUid:[self LastMovedInto].UniqueBeaconID];
+        
+        if(key!=nil){
+            
+            NSArray *keys = [AllProductionLines allKeys];
+        
+            int row=0;
+            NSIndexPath *indexPath = nil;
+            for (NSString *itKey in keys) {
+                if([key compare:itKey]==NSOrderedSame){
+                    indexPath = [NSIndexPath indexPathForRow:(int)row inSection:0];
+                    break;
+                }
+                row++;
+            }
+            if(indexPath){
+                [self.tableView selectRowAtIndexPath:indexPath
+                                            animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+                
+            }
+        }
+
     }
 }
 
+/* Load the available Production lines by querying the web service/embedded JSON request file */
+
 - (void) LoadProductionLines{
     
-    /* OK. Load all of the Production Lines */
+    /* OK. Load all of the Production Lines. As we are specifying to initwithLocalSource this means
+        that we will not be using a web service to load the data. */
     
     AugmentedRealityWS *ws = [[AugmentedRealityWS alloc]initWithLocalSource];
     ws.ProductionLineLoadingDelegate=self;
@@ -73,8 +114,20 @@
     
 }
 
+/* Method called when the production lines are loaded from the data source. As well as 
+    initialising the Master list with all of the individual Production Lines this is also
+        the point at which we set up the IBeacon monitoring. We use a dictionary to ensure
+            that we are only monitoring unique beacon uuids. Ranges are not important in setting
+                up the monitoring. */
+
 - (void)onProductionLineLoaded:(NSDictionary *)ProductionLines{
+
+    /* Assign to the main collection of Production Lines */
+    
     self.AllProductionLines=ProductionLines;
+    
+    /* Now create the monitoring information */
+    
     NSMutableDictionary *beaconIds =[[NSMutableDictionary alloc]init];
     NSMutableArray *beaconDefs = [[NSMutableArray alloc]init];
     
@@ -92,18 +145,19 @@
         }
     }
     
-    /* OK. Recreate the Monitor Beacon terminating if we are already monitoring.... */
+    /* OK. Terminate the Monitor Beacon terminating if we are already monitoring.... */
     
     if(ProductionLinesBeaconMonitor!=nil){
         [ProductionLinesBeaconMonitor terminateMonitoring];
     }
     
+    /* And re-prime the monitoring classes ready for monitoring */
+    
     ProductionLinesBeaconMonitor=[IBeacon alloc];
     ProductionLinesBeaconMonitor.beaconsFoundDelegate=self;
     ProductionLinesBeaconMonitor = [ProductionLinesBeaconMonitor initWithBeacons:beaconDefs];
     
-    /* And Start Monitoring */
-
+    /* Start Monitoring... */
     
     [ProductionLinesBeaconMonitor startMonitoring];
     
@@ -113,17 +167,22 @@
     
 }
 
+/* Method to return the currently selected production line */
+
 -(ProductionLine*)getSelectedProductionLine{
     return [self getProductionLineByIndexPath:[self.tableView indexPathForSelectedRow]];
 }
 
+/* Return a production line by index path */
+
 -(ProductionLine*)getProductionLineByIndexPath:(NSIndexPath*) indexPath{
-    
     NSArray *keys = [AllProductionLines allKeys];
     id key = [keys objectAtIndex:indexPath.row];
     ProductionLine *line = [AllProductionLines objectForKey:key];
     return line;
 }
+
+/* Main Vew Did Load Routine */
 
 - (void)viewDidLoad {
    
@@ -138,10 +197,7 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    
-    /*
-    self.detailViewContainerController = (DetailViewContainerController *)[[[self.splitViewController.viewControllers lastObject] viewControllers][0] viewControllers][0];
-*/
+
     self.detailViewContainerController = (DetailViewContainerController *)[[self.splitViewController.viewControllers lastObject] viewControllers][0];
     
     /* Set the Delegate for loading to this Controller */
@@ -156,27 +212,11 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    /*
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-        
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-        
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-     */
 }
 
 #pragma mark - Segues
+
+/* Main Segue.... Not used as we load items from the story board by controller name */
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
@@ -199,16 +239,14 @@
             /* Set the Bar Back Button..... */
             
             ctl.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-            /*
-            PimpedWS *ws = [[PimpedWS alloc] initWithLocalSource];
-            ws.projectLoadingDelegate=(DetailViewController*)ctl;
-            [ws getProjectById:project.Id];
-             */
         }
     }
 }
 
 #pragma mark - Table View
+
+/* This is effectively the Segue Code... When an item is clicked pass of to the detailviewcontainer
+    controle to let it handle the loading of view controllers associated to the production line selected */
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if([indexPath row] < 3) {
@@ -218,13 +256,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
-//    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return AllProductionLines.count;
-//    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -239,21 +275,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-            
-        NSError *error = nil;
-        if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-     */
 }
+
+/* SInple row configuration */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
@@ -261,9 +285,13 @@
     id key = [keys objectAtIndex:indexPath.row];
     ProductionLine *line = [AllProductionLines objectForKey:key];
     cell.textLabel.text=line.LineName;
+    cell.imageView.image =[UIImage imageNamed:line.Image];
+    cell.detailTextLabel.text=line.Contact;
 }
 
 #pragma mark - Fetched results controller
+
+/* Fetched Results Controller...  Functionality no longer used in this prototype... */
 
 - (NSFetchedResultsController *)fetchedResultsController
 {

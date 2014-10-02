@@ -17,6 +17,8 @@
 @synthesize scansSinceFound;
 @synthesize beaconProximity;
 
+/* Initialise with a range of Near and Immediate as good defaults */
+
 -(instancetype)init{
     self=[super init];
     if(self){
@@ -26,6 +28,8 @@
     return self;
 }
 
+/* Initialise using a beacon*/
+
 -(instancetype)initWithClBeacon:(CLBeacon *)beacon{
     
     self=[self init];
@@ -33,11 +37,11 @@
         Uuid=beacon.proximityUUID;
         MajorId=beacon.major;
         MinorId=beacon.minor;
-//        MajorId=[NSNumber numberWithInt:[beacon.major intValue]];// beacon.major;
-  //      MinorId=[NSNumber numberWithInt:[beacon.minor intValue]];// beacon.major;
     }
     return self;
 }
+
+/* Initialise with just the raw data  */
 
 -(instancetype)initWithData:(NSString *)uid major:(NSNumber *)major minor:(NSNumber *)minor region:(NSString *)region Proximity:(BeaconProximity)proximity{
     self=[super init];
@@ -50,8 +54,11 @@
     }
     return self;
 }
+
+/* Function to return whether or not a Beacon is proximate according to the defined proximation
+        settings */
+
 -(BOOL)isProximateTo:(CLProximity)proximity{
-    
     switch (proximity) {
         case CLProximityNear:
             return beaconProximity & BPNear;
@@ -64,13 +71,15 @@
     }
 }
 
+/* Static Function to return the unique beacon id from a CLBeacon object */
+
 +(NSString*)beaconKeyFromCLBeacon:(CLBeacon *)beacon{
-    NSString *retValue = [NSString  stringWithFormat:@"%@-%d-%d",beacon.proximityUUID.UUIDString,[beacon.major intValue],[beacon.minor intValue]];
-    return retValue;
+    return [NSString  stringWithFormat:@"%@-%d-%d",beacon.proximityUUID.UUIDString,[beacon.major intValue],[beacon.minor intValue]];
 }
 
+/* Static Function to return the unique beacon id from a Beacon defintion object */
+
 +(NSString*)beaconKeyFromBeacon:(BeaconDefinition *)beacon{
-    NSString *retVal=[NSString stringWithFormat:@"%@-%d-%d",beacon.Uuid.UUIDString,[beacon.MajorId intValue],[beacon.MinorId intValue]];
-    return  retVal;
+    return [NSString stringWithFormat:@"%@-%d-%d",beacon.Uuid.UUIDString,[beacon.MajorId intValue],[beacon.MinorId intValue]];
 }
 @end
