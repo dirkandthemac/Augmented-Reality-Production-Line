@@ -125,9 +125,8 @@
     
     if(!Results){
 
-        /* Recreate the Results Dictionary with all of the 
-            available keys */
-        
+        /* Recreate the Results Dictionary with all of the available keys */
+
         Results = [[NSMutableDictionary alloc]init];
         for (BeaconMonitor *monitor in [monitors objectEnumerator]) {
             [Results setObject:[[BeaconMonitorResult alloc]init] forKey:monitor.BeaconKey];
@@ -156,7 +155,6 @@
     
     if(allCompiled){
         NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-        
         for (BeaconMonitor *mon in [monitors objectEnumerator]) {
             [dict addEntriesFromDictionary:mon.availableBeacons];
         }

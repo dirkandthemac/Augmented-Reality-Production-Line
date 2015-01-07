@@ -14,11 +14,9 @@
 @interface BeaconMonitor : NSObject <CLLocationManagerDelegate>
 
 @property (nonatomic,strong) BeaconDefinition* beaconDefintion;
-
 @property(nonatomic,strong) NSString* BeaconKey;
 
-/* The property to which the delegate for the beacons protocol is assigned
- */
+/* The property to which the delegate for the beacons protocol is assigned */
 
 @property(nonatomic,weak)id<BeaconMonitorFoundDelegate> beaconMonitorFoundDelegate;
 
